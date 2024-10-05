@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #fcfdfd;
+        }
+
+        .header {
+            background-color: #5d84ee;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .logo {
+            height: 50px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-photo {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            box-shadow: 5px 5px 15px #b0c4de, -5px -5px 15px #ffffff;
+        }
+
+        .user-details {
+            text-align: right;
+        }
+
+        .user-name {
+            font-weight: 600;
+            display: block;
+        }
+
+        .tittle-info {
+            font-weight: 300;
+            display: block;
+            color: #f4f1f1;
+            font-size: 12px;
+        }
+
+        .user-status {
+            font-size: 11px;
+            color: #6d4141;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #ffffff;
+            padding: 20px;
+            position: fixed;
+            height: 100%;
+            box-shadow: 0px 0px 10px #d2d3d5, 0px 0px 15px #ffffff;
+            border-radius: 0px 20px 0px 0px;
+        }
+
+        .sidebar .menu a {
+            display: block;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            background-color: #f5f9fb;
+            color: #2c237e;
+            text-decoration: none;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0px 0px 10px #cbd9ea, -3px -3px 15px #ffffff;
+        }
+
+        .sidebar .menu a:hover {
+            background-color: #42c2e1;
+        }
+
+        .dashboard-content {
+            margin-left: 270px;
+            padding: 30px;
+            flex-grow: 1;
+        }
+
+        .simple-form {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f5f7fa;
+            border-radius: 15px;
+            box-shadow: 5px 5px 15px #dbe3ef, -5px -5px 15px #ffffff;
+            max-width: 400px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            box-shadow: inset 2px 2px 5px #b0c4de, inset -5px -5px 15px #ffffff;
+        }
+
+        .btn-submit {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 5px 5px 15px #b0c4de, -5px -5px 15px #ffffff;
+        }
+
+        .btn-submit:hover {
+            background-color: #45a049;
+            box-shadow: inset 5px 5px 15px #b0c4de, inset -5px -5px 15px #ffffff;
+        }
+
+        .class-list {
+            margin-top: 20px;
+            padding-left: 20px;
+        }
+
+        .class-list li {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .profile-settings-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 5px 5px 15px #d4dde9, -5px -5px 15px #ffffff;
+        }
+
+        .profile-settings-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: inset 5px 5px 15px #b0c4de, inset -5px -5px 15px #ffffff;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .save-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #4c67db;
+            color: #fff;
+            border: none;
+            border-radius: 15px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 5px 5px 15px #b0c4de, -5px -5px 15px #ffffff;
+        }
+
+        .save-btn:hover {
+            background-color: #3a4fbd;
+            box-shadow: inset 5px 5px 15px #b0c4de, inset -5px -5px 15px #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="logo esap.png" alt="Logo" class="logo">
+        <span class="tittle-info">Integrasi Teknologi dan Komponen Manajemen Bimbingan dan Konseling</span>
+    </div>
+    <nav class="navbar">
+        <div class="user-info">
+            <img src="Avatar 1.png" alt="User Photo" class="user-photo">
+            <div class="user-details">
+                <span class="user-name">Yan Guspriadi</span>
+                <span class="user-status">Guru SMAN 2 Padang</span>
+            </div>
+            
+        </div>
+    </nav>
+    <div class="container">
+        <aside class="sidebar">
+            <ul class="menu">
+                <a href="#" onclick="showSection('profile')"><i class="fa-solid fa-gear"></i></i> Profile</a>
+                <a href="#" onclick="showSection('pengumuman')"><i class="fa-solid fa-circle-info"></i></i> Pengumuman</a>
+                <a href="#" onclick="showSection('panduan')"><i class="fa-solid fa-book"></i></i> Panduan</a>
+                <a href="#" onclick="showSection('data-kelas')"><i class="fas fa-chalkboard"></i> Data Kelas</a>
+                <a href="#" onclick="showSection('data-siswa')"><i class="fas fa-user-graduate"></i> Data Siswa</a>
+                <a href="#" onclick="showSection('instrumen')"><i class="fas fa-book"></i> Instrumen</a>
+                <a href="#" onclick="showSection('metadata')"><i class="fas fa-database"></i> Metadata</a>
+                <a href="#" onclick="showSection('esap')"><i class="fas fa-chart-line"></i> ESAP</a>
+            </ul>
+        </aside>
+        <main class="dashboard-content">
+            <!-- Section Profile-->
+            <div id="profile" class="content-section" style="display: block;">
+                <h2>Pengaturan Profil</h2>
+                <form id="profileForm">
+                    <div class="form-group">
+                        <label for="name">Nama Lengkap</label>
+                        <input type="text" id="name" name="name" placeholder="Masukkan Nama Lengkap" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="nip">NIP/NUPTK</label>
+                        <input type="text" id="nip" name="nip" placeholder="Masukkan NIP/NUPTK" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="institution">Instansi</label>
+                        <input type="text" id="institution" name="institution" placeholder="Masukkan Instansi" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="profilePic">Foto Profil</label>
+                        <input type="file" id="profilePic" name="profilePic" accept="image/*">
+                    </div>
+                    
+                    <button type="submit" class="save-btn">Simpan Perubahan</button>
+                </form>
+                </div>
+                
+
+
+            <!-- Section Pengumuman-->
+            <div id="pengumuman" class="content-section" style="display: none;">
+                <h2>Pengumuman</h2>
+                <!-- Konten pengumuman -->
+                <h4><u>Selamat Datang Di Dashboard Pengguna</u></h4>
+            <p class="tanggal-terbit"><h6> Terbit: 15 Agustus 2024 </h6></p>
+            <p class="isi-pengumuman">Ini adalah isi dari pengumuman. Anda dapat menambahkan informasi yang relevan di sini sesuai dengan kebutuhan.</p>
+            </div>
+            <div id="panduan" class="content-section" style="display: none;">
+                <h2>Panduan</h2>
+                <!-- Konten Panduan -->
+                <h3>Alur Penggunaan</h3>
+                <p>Box ini akan berisi alur penggunaan ESAP yang sedang dalam proses pembuatan.</p>
+                <!-- Tempatkan alur penggunaan di sini setelah selesai -->
+                <div>
+                <h4>Manual Book</h4>
+                <a href="path-to-manual-book.pdf" download class="btn-download"><i class="fa-solid fa-book"></i> Unduh Manual Book</a>
+            </div>
+               
+            </div>
+                
+                <!-- Section Data Kelas -->
+<div id="data-kelas" class="content-section" style="display: block;">
+    <h2>Data Kelas Binaan</h2>
+    <div id="data-kelas" class="content-section" style="display: block;">
+        <h2>Data Kelas Binaan</h2>
+        
+        <form id="kelasForm" class="simple-form">
+            <div class="form-group">
+                <label for="tingkatan">Tingkatan Kelas:</label>
+                <select id="tingkatan" name="tingkatan" required>
+                    <option value="10">Kelas 10</option>
+                    <option value="11">Kelas 11</option>
+                    <option value="12">Kelas 12</option>
+                </select>
+            </div>
+    
+            <div class="form-group">
+                <label for="jurusan">Jurusan:</label>
+                <select id="jurusan" name="jurusan" required>
+                    <option value="IPA">IPA</option>
+                    <option value="IPS">IPS</option>
+                    <option value="Bahasa">Bahasa</option>
+                    <option value="Teknik">Teknik</option>
+                </select>
+            </div>
+    
+            <button type="submit" class="btn-submit">Tambahkan Kelas</button>
+        </form>
+    
+        <h3>Daftar Kelas Binaan</h3>
+        <ul id="kelasList" class="class-list">
+            <!-- Kelas yang ditambahkan akan muncul di sini -->
+        </ul>
+    </div>
+    <form id="kelasForm" class="simple-form">
+        <div class="form-group">
+            <label for="tingkatan">Tingkatan Kelas:</label>
+            <select id="tingkatan" name="tingkatan" required>
+                <option value="10">Kelas 10</option>
+                <option value="11">Kelas 11</option>
+                <option value="12">Kelas 12</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="jurusan">Jurusan:</label>
+            <select id="jurusan" name="jurusan" required>
+                <option value="IPA">IPA</option>
+                <option value="IPS">IPS</option>
+                <option value="Bahasa">Bahasa</option>
+                <option value="Teknik">Teknik</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn-submit">Tambahkan Kelas</button>
+    </form>
+
+    <h3>Daftar Kelas Binaan</h3>
+    <ul id="kelasList" class="class-list">
+        <!-- Kelas yang ditambahkan akan muncul di sini -->
+    </ul>
+</div>
+
+            <!-- Section Data Siswa -->
+            <div id="data-siswa" class="content-section" style="display: none;">
+                <h2>Data Siswa</h2>
+                
+                <h3>Daftar Kelas yang Tersedia</h3>
+                <ul id="siswaKelasList" class="class-list">
+                    <!-- Kelas yang ditambahkan dari Data Kelas juga akan muncul di sini -->
+                </ul>
+            
+                <!-- Formulir atau data siswa lainnya akan ditambahkan di sini -->
+            </div>
+            
+            <!-- Section Instrumen -->
+            <div id="instrumen" class="content-section" style="display: none;">
+                <h2>Instrumen</h2>
+                <!-- Konten Instrumen -->
+            </div>
+            <!-- Section Metadata -->
+            <div id="metadata" class="content-section" style="display: none;">
+                <h2>Metadata</h2>
+                <!-- Konten Metadata -->
+            </div>
+            <!-- Section ESAP -->
+            <div id="esap" class="content-section" style="display: none;">
+                <h2>ESAP</h2>
+                <!-- Konten ESAP -->
+            </div>
+        </main>
+    </div>
+    <script>
+        // Fungsi untuk menampilkan section tertentu dan menyembunyikan yang lain
+        function showSection(sectionId) {
+            var sections = document.querySelectorAll('.content-section');
+            sections.forEach(function(section) {
+                section.style.display = 'none'; // Sembunyikan semua section
+            });
+            document.getElementById(sectionId).style.display = 'block'; // Tampilkan section yang dipilih
+        }
+
+        // Menampilkan Data Kelas secara default
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('pengumuman');
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Semua script yang berhubungan dengan manipulasi DOM ditempatkan di sini
+            document.getElementById('kelasForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const tingkatan = document.getElementById('tingkatan').value;
+                const jurusan = document.getElementById('jurusan').value;
+                const kelasText = `Kelas ${tingkatan} - ${jurusan}`;
+
+                const liKelas = document.createElement('li');
+                liKelas.textContent = kelasText;
+
+                // Tambahkan ke daftar kelas di Data Kelas
+                document.getElementById('kelasList').appendChild(liKelas);
+
+                // Tambahkan ke daftar kelas di Data Siswa
+                const liSiswa = document.createElement('li');
+                liSiswa.textContent = kelasText;
+                document.getElementById('siswaKelasList').appendChild(liSiswa);
+
+                // Reset form setelah submit
+                document.getElementById('kelasForm').reset();
+            });
+        });
+    </script>
+    <script>
+        document.getElementById('profileForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    // Ambil nilai dari input
+    const name = document.getElementById('name').value;
+    const nip = document.getElementById('nip').value;
+    const institution = document.getElementById('institution').value;
+    const profilePic = document.getElementById('profilePic').files[0];
+
+    // Lakukan validasi jika diperlukan
+    if (name && nip && institution) {
+        // Simpan perubahan (simulasi)
+        console.log('Nama:', name);
+        console.log('NIP/NUPTK:', nip);
+        console.log('Instansi:', institution);
+        
+        if (profilePic) {
+            console.log('Foto Profil:', profilePic.name);
+        }
+        
+        alert('Perubahan profil telah disimpan!');
+        
+        // Tambahkan logika untuk mengirim data ke server jika diperlukan
+        // Contoh: menggunakan fetch atau AJAX untuk mengirim data ke backend
+        
+    } else {
+        alert('Harap lengkapi semua data yang diperlukan.');
+    }
+});
+    </script>
+   
+</body>
+</html>

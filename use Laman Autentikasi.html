@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'poppins', sans-serif;
+        }
+
+        body {
+            background-color: #afc1f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+        }
+
+        .login-box {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .login-box img {
+            max-width: 100px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #f4f4f4;
+            border: none;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        .input-group label {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            background-color: #ffffff;
+            padding: 0 5px;
+            color: #666;
+            transition: all 0.3s;
+            pointer-events: none;
+        }
+
+        .input-group input:focus + label,
+        .input-group input:not(:placeholder-shown) + label {
+            top: -10px;
+            left: 10px;
+            font-size: 12px;
+            color: #333;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #0dcc5d;
+        }
+
+        .sign-up-text {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .sign-up-text a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .sign-up-text a:hover {
+            color: #ed8f0b;
+        }
+
+        .sign-up-text a:hover {
+            text-decoration: underline;
+        }
+        
+        .forgot-password {
+            text-align: center;
+            margin-top: 0px;
+        }
+
+        .forgot-password {
+            color: #333;
+            font-size: 15;
+            font-weight: bold;
+            
+        }
+        .forgot-password a:hover {
+            color: #ed8f0b;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+        .back {
+            max-width: 100%;
+            font-size: small;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <center><img src="logo esap 2.png" alt="Logo"></center>
+            <h2>Login</h2>
+            <!-- Tambahkan atribut action dan method -->
+            <form action="login.php" method="post">
+                <div class="input-group">
+                    <input type="text" name="username" id="username" required>
+                    <label for="username"><b>Username or Email</b></label>
+                </div>
+                <div class="input-group">
+                    <input type="password" name="password" id="password" required>
+                    <label for="password"><b>Password</b></label>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <p class="sign-up-text">Don't have an account? <a href="use Laman Registrasi.html">Sign up</a></p>
+                <p class="forgot-password"><a href="use Reset Password.html">Forgot Password</a></p>
+                <br>
+                <div class="back">
+                    <a href="/index.html">
+                        <center><i class="fa-solid fa-circle-chevron-left" onclick="goBack()" style="cursor: pointer;"></i></center>
+                    </a>
+                    <center><p>Back to Home</p></center>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

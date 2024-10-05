@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Konfirmasi Terkirim</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Ganti dengan path CSS Anda -->
+    <style> /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Gaya Laman Konfirmasi Pengiriman Email */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffffff, #afc1f3);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .email-confirmation-container {
+            width: 100%;
+            max-width: 400px;
+            background-color: #fff;
+            border-radius: 30px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .email-confirmation-box {
+            text-align: center;
+        }
+        
+        .email-confirmation-box h2 {
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .email-confirmation-box p {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 20px;
+        }
+        
+        .btn-back-to-login {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4c67db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        .btn-back-to-login:hover {
+            background-color: #3a4fbd;
+        }
+</style>
+</head>
+<body>
+    <div class="email-confirmation-container">
+        <div class="email-confirmation-box">
+            <h2>Email Konfirmasi Terkirim</h2>
+            <p>Silahkan cek mailbox Anda untuk melanjutkan proses reset password.</p>
+            <a href="Laman Autentikasi.html" class="btn-back-to-login">Kembali ke Halaman Login</a>
+        </div>
+    </div>
+</body>
+</html>
